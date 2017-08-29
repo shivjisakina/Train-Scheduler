@@ -22,6 +22,17 @@ $('.signup').on('click', function (event) {
     var firstTrain = $("#firstTrain").val().trim();
     var frequency = $("#frequency").val().trim();
 
+    var testDB = {
+        trainName: trainName,
+        destination: destination,
+        firstTrain: firstTrain,
+        frequency: frequency
+    }
+
     console.log(trainName, destination, firstTrain, frequency)
+
+    var database = db.ref("TrainSchedule")
+
+    database.push(testDB)
 
 })
