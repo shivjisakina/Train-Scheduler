@@ -17,8 +17,14 @@ $('.signup').on('click', function (event) {
 
     var trainName = $("#trainName").val().trim();
     var destination = $("#destination").val().trim();
+
+
     var firstTrain = moment($("#firstTrain").val().trim(), "HH:mm").subtract(10, "years").format("x");
     var frequency = $("#frequency").val().trim();
+
+
+    var timeNow = moment();
+    console.log("The time right now is" + moment(timeNow).format("hh:mm"));
 
     var testDB = {
         trainName: trainName,
