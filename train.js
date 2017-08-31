@@ -17,14 +17,30 @@ $('.signup').on('click', function (event) {
 
     var trainName = $("#trainName").val().trim();
     var destination = $("#destination").val().trim();
-
-
-    var firstTrain = moment($("#firstTrain").val().trim(), "HH:mm").subtract(10, "years").format("x");
+    var firstTrain = $("#firstTrain").val().trim();
     var frequency = $("#frequency").val().trim();
 
-
     var timeNow = moment();
-    console.log("The time right now is" + moment(timeNow).format("hh:mm"));
+    console.log("The time right now is " + moment(timeNow).format("hh:mm"));
+
+    //First Train Time
+    var firstTime = moment(firstTrain ,"hh:mm").subtract(1, "years");
+
+    // Time Difference
+    var timeDifference = moment().diff(moment(firstTime), "minutes");
+    console.log("The difference in time is: " + timeDifference);
+
+    // The time the trains are apart
+    var timeApart = timeDifference % frequency;
+    console.log("time remaining: " + timeApart);
+
+    //Minutes till Train
+    var minutesTillTrain = frequency - timeApart;
+    console.log("Minutes till the Train: " + minutesTillTrain);
+
+    var nextTrain = moment().add(minutesTillTrain, "minutes");
+    console.log("Next train is arriving in: " + moment(nextTrain).format("hh:mm"));
+
 
     var testDB = {
         trainName: trainName,
