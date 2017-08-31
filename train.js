@@ -46,10 +46,11 @@ $('.signup').on('click', function (event) {
         trainName: trainName,
         destination: destination,
         firstTrain: firstTrain,
-        frequency: frequency
+        frequency: frequency,
+        minutesTillTrain: minutesTillTrain
     };
 
-    console.log(trainName, destination, firstTrain, frequency);
+    console.log(trainName, destination, firstTrain, frequency, minutesTillTrain);
 
     var database = db.ref("TrainSchedule");
 
