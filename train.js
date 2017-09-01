@@ -56,4 +56,11 @@ $('.signup').on('click', function (event) {
 
     database.push(testDB)
 
+    // getting values from firebase
+    console.log(snapshot.val().trainName)
+    console.log(snapshot.val().destination)
+    console.log(snapshot.val().firstTrain)
+    console.log(snapshot.val().frequency)
+    console.log(snapshot.val().minutesTillTrain)
+
 });
